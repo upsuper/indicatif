@@ -549,6 +549,13 @@ impl ProgressBar {
         })
     }
 
+    /// Increases the length of the progress bar by delta.
+    pub fn inc_length(&self, delta: u64) {
+        self.update_and_draw(|state| {
+            state.len += delta;
+        })
+    }
+
     /// Sets the length of the progress bar.
     pub fn set_length(&self, len: u64) {
         self.update_and_draw(|state| {
